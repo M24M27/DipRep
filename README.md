@@ -1,9 +1,9 @@
 # DipRep
-A comprehensive shell script that automates the process of cloning a GitHub repository. The script checks for and installs required dependencies, authenticates the GitHub CLI, retrieves the user's repositories, and clones the selected repository into a specified or newly created directory.
-# GitHub Repository Clone Automation
+A comprehensive shell script, DipRep, that automates the process of cloning a GitHub repository. The script checks for and installs required dependencies, authenticates the GitHub CLI, retrieves the user's repositories, and clones the selected repository into a specified or newly created directory.
+# DipRep: GitHub Repository Clone Automation
 
 ## Description
-This repository contains a shell script that automates the cloning of a GitHub repository. The script handles the installation of necessary dependencies (`jq` and `gh`), GitHub CLI authentication, retrieval of user's repositories, and clones the selected repository into a specified or newly created directory.
+This repository contains a shell script, DipRep, that automates the cloning of a GitHub repository. The script handles the installation of necessary dependencies (`jq` and `gh`), GitHub CLI authentication, retrieval of user's repositories, and clones the selected repository into a specified or newly created directory.
 
 ## Prerequisites
 - Bash shell
@@ -12,8 +12,8 @@ This repository contains a shell script that automates the cloning of a GitHub r
 
 ## Usage
 1. Clone this repository and navigate to the repository folder.
-2. Make the script executable by running `chmod +x script_name.sh`.
-3. Execute the script by running `./script_name.sh`.
+2. Make the script executable by running `chmod +x DipRep.sh`.
+3. Execute the script by running `./DipRep.sh`.
 4. Follow the prompts to clone the desired repository.
 
 ## Note
@@ -26,3 +26,4 @@ Contributions, issues, and feature requests are welcome!
 
 ## License
 This project is under the MIT License. See `LICENSE` for more information.
+

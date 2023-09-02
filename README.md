@@ -1,5 +1,5 @@
 # DipRep
-A comprehensive shell script, DipRep, that automates the process of cloning a GitHub repository. The script checks for and installs required dependencies, authenticates the GitHub CLI, retrieves the user's repositories, and clones the selected repository into a specified or newly created directory.
+DipRep: Dip the tip of your finger in your slick rep! A comprehensive shell script, DipRep, that automates the process of cloning a GitHub repository. The script checks for and installs required dependencies, authenticates the GitHub CLI, retrieves the user's repositories, and clones the selected repository into a specified or newly created directory.
 # DipRep: GitHub Repository Clone Automation
 
 ## Description
@@ -24,6 +24,5 @@ This repository contains a shell script, DipRep, that automates the cloning of a
 ## Contributions
 Contributions, issues, and feature requests are welcome!
 
-## License
-This project is under the MIT License. See `LICENSE` for more information.
+
 

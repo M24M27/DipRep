@@ -162,3 +162,4 @@ git clone "$repo_url" "$directory/$repo_name"
 
 # Navigate to the repository directory
 cd "$directory/$repo_name"
+

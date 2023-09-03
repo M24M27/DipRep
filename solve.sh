@@ -1,10 +1,18 @@
- 
 #!/bin/bash
+
+
+if ! command -v add-apt-repository &> /dev/null; then
+    sudo apt-get install software-properties-common -y
+fi
+
+
+
 
 install_gh() {
     case "$OSTYPE" in
         linux*)
             if command -v apt-get &> /dev/null; then
+                sudo apt-add-repository -y ppa:gh/gh
                 sudo apt-get update
                 sudo apt-get install gh -y
             elif command -v dnf &> /dev/null; then

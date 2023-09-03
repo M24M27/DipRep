@@ -163,3 +163,14 @@ git clone "$repo_url" "$directory/$repo_name"
 # Navigate to the repository directory
 cd "$directory/$repo_name"
 
+
+# Get the path of the current script
+SCRIPT_PATH=$(dirname $(realpath $0))
+
+# Add the script's path to the PATH variable in .bashrc
+echo "export PATH=$PATH:$SCRIPT_PATH" >> ~/.bashrc
+
+# Reload .bashrc
+source ~/.bashrc
+
+

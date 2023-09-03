@@ -1,105 +1,15 @@
 #!/bin/bash
 
-
-if ! command -v add-apt-repository &> /dev/null; then
-    sudo apt-get install software-properties-common -y
-fi
-
-
-
-
+# Function to install GitHub CLI
 install_gh() {
-    case "$OSTYPE" in
-        linux*)
-            if command -v apt-get &> /dev/null; then
-                sudo apt-add-repository -y ppa:gh/gh
-                sudo apt-get update
-                sudo apt-get install gh -y
-            elif command -v dnf &> /dev/null; then
-                sudo dnf install gh -y
-            elif command -v pacman &> /dev/null; then
-                sudo pacman -S gh
-            elif command -v yum &> /dev/null; then
-                sudo yum install gh -y
-            elif command -v zypper &> /dev/null; then
-                sudo zypper install gh
-            elif command -v eopkg &> /dev/null; then
-                sudo eopkg install gh
-            elif command -v emerge &> /dev/null; then
-                sudo emerge --ask app-misc/gh
-            else
-                echo "Unknown Linux distribution. Please install GitHub CLI manually."
-                exit 1
-            fi
-            ;;
-        darwin*)
-            if ! command -v brew &> /dev/null; then
-                echo "Homebrew not installed. Please install Homebrew and then run this script again."
-                exit 1
-            fi
-            brew install gh
-            ;;
-        msys*)
-            if ! command -v choco &> /dev/null; then
-                echo "Chocolatey not installed. Please install Chocolatey and then run this script again."
-                exit 1
-            fi
-            choco install gh
-            ;;
-        *)
-            echo "Unknown operating system. Please install GitHub CLI manually."
-            exit 1
-            ;;
-    esac
-
-    # Run 'gh auth login' after installing 'gh'
-    if ! gh auth status &>/dev/null; then
-        echo "Running 'gh auth login'..."
-        gh auth login
-    fi
+    echo "Installing GitHub CLI..."
+    curl -sSL https://github.com/cli/cli/releases/download/v2.0.0/gh_2.0.0_linux_amd64.tar.gz | tar xz -C /tmp
+    sudo mv /tmp/gh_2.0.0_linux_amd64/bin/gh /usr/local/bin/
 }
 
+# Function to install jq
 install_jq() {
-    case "$OSTYPE" in
-        linux*)
-            if command -v apt-get &> /dev/null; then
-                sudo apt-get install jq -y
-            elif command -v dnf &> /dev/null; then
-                sudo dnf install jq -y
-            elif command -v pacman &> /dev/null; then
-                sudo pacman -S jq
-            elif command -v yum &> /dev/null; then
-                sudo yum install jq -y
-            elif command -v zypper &> /dev/null; then
-                sudo zypper install jq
-            elif command -v eopkg &> /dev/null; then
-                sudo eopkg install jq
-            elif command -v emerge &> /dev/null; then
-                sudo emerge --ask app-misc/jq
-            else
-                echo "Unknown Linux distribution. Please install jq manually."
-                exit 1
-            fi
-            ;;
-        darwin*)
-            if ! command -v brew &> /dev/null; then
-                echo "Homebrew not installed. Please install Homebrew and then run this script again."
-                exit 1
-            fi
-            brew install jq
-            ;;
-        msys*)
-            if ! command -v choco &> /dev/null; then
-                echo "Chocolatey not installed. Please install Chocolatey and then run this script again."
-                exit 1
-            fi
-            choco install jq
-            ;;
-        *)
-            echo "Unknown operating system. Please install jq manually."
-            exit 1
-            ;;
-    esac
+    sudo apt-get install jq -y
 }
 
 # Install jq if not installed
@@ -186,3 +96,5 @@ echo "export PATH=$PATH:$SCRIPT_PATH" >> ~/.bashrc
 
 # Reload .bashrc
 source ~/.bashrc
+
+echo "Repository successfully cloned!"

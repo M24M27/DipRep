@@ -1,3 +1,4 @@
+ 
 #!/bin/bash
 
 install_gh() {
@@ -42,6 +43,12 @@ install_gh() {
             exit 1
             ;;
     esac
+
+    # Run 'gh auth login' after installing 'gh'
+    if ! gh auth status &>/dev/null; then
+        echo "Running 'gh auth login'..."
+        gh auth login
+    fi
 }
 
 install_jq() {
@@ -163,7 +170,6 @@ git clone "$repo_url" "$directory/$repo_name"
 # Navigate to the repository directory
 cd "$directory/$repo_name"
 
-
 # Get the path of the current script
 SCRIPT_PATH=$(dirname $(realpath $0))
 
@@ -172,5 +178,3 @@ echo "export PATH=$PATH:$SCRIPT_PATH" >> ~/.bashrc
 
 # Reload .bashrc
 source ~/.bashrc
-
-
